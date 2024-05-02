@@ -18,14 +18,18 @@ public class AlunoService {
 	public AlunoService (AlunoRepository alunoRepository) {
 		this.alunoRepository = alunoRepository;
 	}
-	public List<Aluno> getAllalunoPorCidade(String cidade) {
+	
+	public List<Aluno> getAllAluno(){
+		return alunoRepository.findAll();
+	}
+	public List<Aluno> findByCidade(String cidade) {
 		return alunoRepository.findByCidade(cidade);
 	}
 
 	public List<Aluno> getAllalunoPorRenda(Double renda) {
 		return alunoRepository.findByRenda(renda);
 	}
-	public Aluno getAllalunoPorRA(String ra) {
+	public List<Aluno> getAllalunoPorRA(String ra) {
 		return alunoRepository.findByRa(ra);
 	}
 	public List<Aluno> getAllalunoPorCidadeAndRenda(String cidade, Double renda) {
@@ -62,5 +66,8 @@ public class AlunoService {
 	public List <Aluno> findByNome (String nome){
 		return alunoRepository.findByNome(nome);
 	}
-
+	//@query
+	public List<Aluno> findByTurmaId(Long turmaId){
+		return alunoRepository.findByTurmaId(turmaId);
+	}
 }
